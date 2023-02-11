@@ -45,5 +45,16 @@
   "dependencies": {
     "lru-cache": "^7.14.1",
     "netmask": "^2.0.2"
-  }
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/finwo"
+  },
+  "keywords": [
+    "express",
+    "ipfilter",
+    "ip",
+    "cidr",
+    "filter",
+    "middleware"
+  ]
 }
