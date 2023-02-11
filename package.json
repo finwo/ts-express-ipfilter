@@ -1,0 +1,31 @@
+{
+  "name": "@finwo/ipfilter",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "npm run linter && npm run build && node_modules/.bin/tap --reporter-arg=--reporter=html 'lib/test/**/*.test.js'",
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:test",
+    "build:cjs": "tsc -p ./config/tsconfig.cjs.json",
+    "build:esm": "tsc -p ./config/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs && mv lib/esm/index.js.map lib/esm/index.mjs.map",
+    "build:test": "tsc -p ./config/tsconfig.test.json",
+    "linter": "eslint src",
+    "postpublish": "PACKAGE_VERSION=$(node -e 'process.stdout.write(require(\"./package.json\").version);') && PACKAGE_NAME=$(node -e 'process.stdout.write(require(\"./package.json\").name);') && npm deprecate \"${PACKAGE_NAME}@<${PACKAGE_VERSION}\" \"Rolling release, please update to ${PACKAGE_VERSION}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finwo/ts-express-ipfilter.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finwo/ts-express-ipfilter/issues"
+  },
+  "homepage": "https://github.com/finwo/ts-express-ipfilter#readme",
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "eslint": "^8.34.0",
+    "typescript": "^4.9.5"
+  }
+}
