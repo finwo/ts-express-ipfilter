@@ -17,7 +17,7 @@ export const defaultDeniedHandler: DeniedHandler = (_req: Request, res: Response
   res.send('Permission denied');
 };
 
-export function ipfilter(listedIPs: iplist, options: Opts) {
+export function ipfilter(listedIPs: iplist, options: Opts = {}) {
 
   // Ensure all options are set
   const opts: Required<Opts> = Object.assign({
